@@ -1,0 +1,98 @@
+INTERFACE....
+
+				INTERFACE ASLA BIR CLASS DEGILDIR. INTERFACE INTERFACE'DIR
+				
+1) Interface yapilarda concrete method asla !creat! edilemez. 
+    Sadece abstract methodlar creat edilir.
+    
+
+
+2) Java multiple inheritance desteklemez. Ancak interface parent'ler multiple
+   inheritance'i destekler.
+
+
+
+3) Birden fazla parent class'larda ayni isimli methodlarin olmasi durumunda child class
+   ayni isimli farkli body'li methodlar icin secim yapamaz. Fakat Interface'lerde
+   methodlarin body'leri olmadigindan ayni isimli methodlar birbiriyle tamamen
+   ayni oldugu icin secim-tercih soz konusu degildir. Child class parent interface'den ayni 
+   isimli methodlardan birini override ederek sorunu cozer.
+   
+ --AHANDA TRICK : Parent interface'lerde ayni isimli, farkli return type'li methodlar 
+   				  child class'da CTE verir...
+   
+   
+
+
+4) interface yapilarda tum methodlar abstract olmak zorunda oldugundan method signuture'da 
+   'abstract' keyword 'u yazilmayabilir.
+   
+   exp : 
+   			public abstract void koltuk();  // abstract method, abstract keyword kullanilmis
+	
+			public void ayna();				// abstract method, abstract keyword kullanilmamis
+
+
+
+
+5) interface'lerdeki tum member'lar public oldugu icin 'access modifier' yazilmasa bile
+   public ile ayni ozelligi yapar.
+   
+   exp : 
+   			abstract void koltuk();  	
+	
+			public void ayna();	
+			
+ --AHANDA TRICK : Normal class'larda 'access modifier' yazilmazsa DEFAULT olur.
+				  Ancak interface'lerde 'access modifier' yazilmazsa PUBLIC olur.
+
+
+
+6) interface'ler kendi arasinda parent-child (extends) iliskisi kurabilir.
+   interface'leri bir class'a parent yapmak icin "implement" keywordu kullanilir.
+   class'lari bir class'a parent yapmak icin "extends" keywordu kullanilir.
+	
+	
+	  class       --->     class     :  extends
+	interface     --->   interface   :  extends
+	  class       --->   interface   :  implements
+	interface     --->     class     :  O-LA-MAZ !!      (interface'in parent class'i olamaz)
+
+
+
+7) interface'lerde variable'lar mutlaka final'dir.
+   
+   a) final veriable'lar italik-bold'dur ve buyuk harf ile yazilmali
+   b) final veriable'lar initialize edilmezse CTE verir.
+   
+
+8) interface'lerdeki veriable'lar mutlaka static'dir. 
+   Dolayisiyla object creat etmeden interface ismiyle ulasilabilir. (static'in ozelliginden dolayi)
+
+
+9) interface'lerde tum member'lar public'tir. Dolayisiyla tum interface veriable'lari 
+   
+   ==> public+static+final   (yazsa da yazmasa da)
+   
+   
+10) interface yapilarda istenirse abstract olmayan concrete method creat edilebilir. 
+	
+	a) access modifier'dan sonra 'default' veya 'static' keyword kullanilmali.
+	b) interface yapilarda concrete method icin kullanilan 'default' keywordu kesinlikle ve asla ACCESS MODIFIER turunu vermez!!!
+	c) interface yapilarda concrete method child class tarafindan override edilmek zorunda degildir.
+	d) interface yapilarda 'default' olarak creat edilen concrete method child class'a ancak obje ile call edilebilir.
+	e) interface yapilarda 'static' olarak creat edilen concrete method child class'a ancak DataType(interface name) ile call edilebilir.
+   
+   					
+   
+   
+
+
+
+
+
+
+
+
+
+
